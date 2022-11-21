@@ -1,5 +1,5 @@
 {
-  "name": "base-redux-toolkit",
+  "name": "sibaritus",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,9 +21,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:coverage": "jest --coverage --watchAll=false --passWithNoTests"
   },
   "eslintConfig": {
     "extends": [
