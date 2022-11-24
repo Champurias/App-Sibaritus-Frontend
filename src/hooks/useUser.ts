@@ -9,9 +9,9 @@ const apiUrl = process.env.REACT_APP_API_URL;
 const useUser = () => {
   const dispach = useAppDispatch();
 
-  const registerUser = async (registerData: UserDateRegister) => {
+  const registerUser = async (userRegisterData: UserDateRegister) => {
     try {
-      await axios.post(`${apiUrl}/users/register`);
+      await axios.post(`${apiUrl}/users/register`, userRegisterData);
       dispach(
         openModalActionCreator({
           isError: false,
@@ -28,7 +28,7 @@ const useUser = () => {
       );
     }
   };
-  return registerUser;
+  return { registerUser };
 };
 
 export default useUser;

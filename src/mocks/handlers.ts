@@ -4,7 +4,7 @@ import { UserDateRegister } from "../data/types";
 const url = process.env.REACT_APP_API_URL;
 
 export const handlers = [
-  rest.post(`${url}/user/register`, async (req, res, ctx) => {
+  rest.post(`${url}/users/register`, async (req, res, ctx) => {
     const user = await req.json<UserDateRegister>();
     const { username } = user;
 
