@@ -1,6 +1,3 @@
-// describe
-//describ
-
 import mockCurrentState from "../../mocks/mockCurrentState";
 import { UiState } from "../types/types";
 import {
