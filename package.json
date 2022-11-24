@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "test:coverage": "jest --coverage --watchAll=false"
+    "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +50,12 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.26",
     "husky": "^8.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!./src/index.tsx"
+    ]
   }
 }
