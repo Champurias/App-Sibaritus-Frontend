@@ -1,5 +1,11 @@
+import RegisterForm from "./components/RegisterForm/RegisterForm";
+
 const App = () => {
-  return <h1>sibaritus</h1>;
+  return (
+    <>
+      <RegisterForm />
+    </>
+  );
 };
 
 export default App;
