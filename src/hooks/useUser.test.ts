@@ -18,7 +18,7 @@ describe("Given a useUser custom hook", () => {
   });
 
   describe("When its method registerUser is invoked with username 'hulio' password '1234567' and email hulio@gmail.com", () => {
-    test("Then it should invoke openModalActiocreator with test: 'Welcome to the Api Rest from sibaritus'", async () => {
+    test("Then it should invoke openModalActiocreator with test: 'A la web de sibaritus'", async () => {
       const registerNewUser: UserDateRegister = {
         username: "hulio",
         password: "1234567",
@@ -26,7 +26,7 @@ describe("Given a useUser custom hook", () => {
       };
       const modalUser: OpenModalActionPayload = {
         isError: false,
-        messageFeedback: "Welcome to the Api Rest from sibaritus",
+        messageFeedback: "A la web de sibaritus",
       };
       await registerUser(registerNewUser);
 
@@ -38,13 +38,13 @@ describe("Given a useUser custom hook", () => {
     describe("When its method registerUser is invoked with username 'registerUser'", () => {
       test("Then it should invoke dispatch with openModalAction creator with text 'invalid name, choose another name'", async () => {
         const registerNewUser: UserDateRegister = {
-          username: "hulio",
+          username: "registerUser",
           password: "1234567",
           email: "hulio@gmail.com",
         };
         const modalUser: OpenModalActionPayload = {
-          isError: false,
-          messageFeedback: "Welcome to the Api Rest from sibaritus",
+          isError: true,
+          messageFeedback: "No te has podido registrar",
         };
         await registerUser(registerNewUser);
 

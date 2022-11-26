@@ -1,8 +1,7 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { UserDateRegister } from "../data/types";
 import { openModalActionCreator } from "../redux/features/Uislice/Uislice";
 import { useAppDispatch } from "../redux/hooks";
-import AxiosTypeError from "./types";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -15,15 +14,14 @@ const useUser = () => {
       dispach(
         openModalActionCreator({
           isError: false,
-          messageFeedback: "Welcome to the Api Rest from sibaritus",
+          messageFeedback: "A la web de sibaritus",
         })
       );
     } catch (error: unknown) {
       dispach(
         openModalActionCreator({
           isError: true,
-          messageFeedback: (error as AxiosError<AxiosTypeError>).response?.data
-            .error!,
+          messageFeedback: "No te has podido registrar",
         })
       );
     }

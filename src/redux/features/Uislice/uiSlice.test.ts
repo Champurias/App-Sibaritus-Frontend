@@ -1,10 +1,10 @@
-import mockCurrentState from "../../mocks/mockCurrentState";
-import { UiState } from "../types/types";
+import mockCurrentState from "../../../mocks/mockCurrentState";
+import { UiState } from "../../types/types";
 import {
   closeModalActionCreator,
   openModalActionCreator,
   uiReducer,
-} from "./Uislice/Uislice";
+} from "./Uislice";
 
 describe("Given the function uiSlice", () => {
   describe("When it receives an empty initial state and a openModal action with text 'Something went wrong' and isError true", () => {
