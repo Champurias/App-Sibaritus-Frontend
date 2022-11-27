@@ -1,5 +1,5 @@
+import Layout from "./components/Layout/Layout";
 import Modal from "./components/Modal/Modal";
-import RegisterForm from "./components/RegisterForm/RegisterForm";
 import { useAppSelector } from "./redux/hooks";
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
           isError={isError}
         />
       )}
-      <RegisterForm />
+      <Layout />
     </div>
   );
 };
