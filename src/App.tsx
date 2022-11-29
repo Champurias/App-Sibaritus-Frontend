@@ -9,13 +9,7 @@ const App = () => {
 
   return (
     <div className="app">
-      {isOpen && (
-        <Modal
-          messageFeedback={messageFeedback}
-          isOpen={isOpen}
-          isError={isError}
-        />
-      )}
+      {isOpen && <Modal messageFeedback={messageFeedback} isError={isError} />}
       <Layout />
     </div>
   );

@@ -1,23 +1,21 @@
 import { useEffect } from "react";
 import { closeModalActionCreator } from "../../redux/features/Uislice/Uislice";
 import { useAppDispatch } from "../../redux/hooks";
-import { ModalState } from "../../redux/types/types";
 import ModalStyled from "./ModalStyled";
 
-const Modal = ({
-  isOpen,
-  messageFeedback,
-  isError,
-}: ModalState): JSX.Element => {
+interface ModalProps {
+  messageFeedback: string;
+  isError: boolean;
+}
+
+const Modal = ({ messageFeedback, isError }: ModalProps): JSX.Element => {
   const dispach = useAppDispatch();
 
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => {
-        dispach(closeModalActionCreator());
-      }, 4000);
-    }
-  }, [dispach, isOpen]);
+    setTimeout(() => {
+      dispach(closeModalActionCreator());
+    }, 4000);
+  }, [dispach]);
 
   return (
     <ModalStyled className={isError ? "modal-error" : "modal-correct"}>
