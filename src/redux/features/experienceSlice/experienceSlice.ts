@@ -1,12 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import Experience from "./types";
-
-export interface ExperienceState {
-  experiences: Experience[];
-}
+import { Experience, ExperienceState } from "./types";
 
 export const initialExperienceState: ExperienceState = {
-  experiences: [],
+  experienceList: [],
 };
 
 const experiencesSlice = createSlice({
@@ -18,7 +14,7 @@ const experiencesSlice = createSlice({
       action: PayloadAction<Experience[]>
     ): ExperienceState => ({
       ...initialState,
-      experiences: [...action.payload],
+      experienceList: [...action.payload],
     }),
   },
 });
