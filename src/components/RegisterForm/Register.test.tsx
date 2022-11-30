@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import providerWrapper from "../../mocks/providerWrapper";
 import ProviderWrapper from "../../mocks/providerWrapper";
+import renderWithProviders from "../../utils/testUtils/renderwithProvider";
 import RegisterForm from "./RegisterForm";
 
 const mockRegisterAction = jest.fn();
@@ -16,8 +17,7 @@ describe("Given a registerForm component", () => {
     test("Then it should show 3 input elements", () => {
       const expectedInputs = 2;
 
-      render(<RegisterForm />, { wrapper: ProviderWrapper });
-
+      renderWithProviders(<RegisterForm />);
       const formInputs = screen.queryAllByRole("textbox");
       const passwordInput = screen.queryByLabelText("password-input");
 

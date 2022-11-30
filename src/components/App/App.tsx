@@ -1,6 +1,6 @@
-import Layout from "./components/Layout/Layout";
-import Modal from "./components/Modal/Modal";
-import { useAppSelector } from "./redux/hooks";
+import Layout from "../Layout/Layout";
+import Modal from "../Modal/Modal";
+import { useAppSelector } from "../../redux/hooks";
 
 const App = () => {
   const {

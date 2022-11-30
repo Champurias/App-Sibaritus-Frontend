@@ -1,20 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { store } from "../../redux/store";
-
+import { screen } from "@testing-library/react";
+import renderWithProviders from "../../utils/testUtils/renderwithProvider";
 import Layout from "./Layout";
 
 describe("Given a Layout component", () => {
   describe("When its rendered", () => {
     test("Then it should show a RegisterForm component with three inputs username, password, email and the button to register", () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <Layout />
-          </Provider>
-        </BrowserRouter>
-      );
+      renderWithProviders(<Layout />, { initialEntries: ["/registro"] });
 
       const nameInput = screen.queryByRole("textbox", {
         name: "username-input",
