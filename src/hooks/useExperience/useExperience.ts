@@ -10,8 +10,11 @@ const useExperience = () => {
 
   const loadAllExperiences = useCallback(async () => {
     try {
-      const response = await axios.get(`${apiUrl}/experiences`);
-      dispatch(getExperienceActionCreator(response.data));
+      const {
+        data: { experience },
+      } = await axios.get(`${apiUrl}/experience/list`);
+
+      dispatch(getExperienceActionCreator(experience));
     } catch (error: unknown) {
       dispatch(
         openModalActionCreator({

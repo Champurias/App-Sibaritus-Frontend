@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import { UserDateRegister } from "../data/types";
 import mockExperience from "./mockExperience";
+import mockExperienceList from "./mockExperienceList";
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -18,14 +19,14 @@ export const handlers = [
     return res(ctx.status(201), ctx.json({ user }));
   }),
 
-  rest.get(`${url}/experiences`, async (req, res, ctx) => {
+  rest.get(`${url}/experience/list`, async (req, res, ctx) => {
     return res.once(
       ctx.status(404),
       ctx.json({ error: "error no hay experiencias gastronomicas que mostrar" })
     );
   }),
-  rest.get(`${url}/experiences`, async (req, res, ctx) => {
-    return res.once(ctx.status(200), ctx.json(mockExperience));
+  rest.get(`${url}/experience/list`, async (req, res, ctx) => {
+    return res.once(ctx.status(200), ctx.json(mockExperienceList));
   }),
 ];
 export default handlers;

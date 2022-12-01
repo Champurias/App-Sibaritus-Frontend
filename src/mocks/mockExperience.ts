@@ -20,7 +20,6 @@ const mockExperience = [
     location: "N@omi",
     price: 34,
     detail: "Characters",
-    imageUrl: "",
   },
 ];
 

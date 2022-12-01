@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react";
+import { act, renderHook, waitFor } from "@testing-library/react";
 import mockExperience from "../../mocks/mockExperience";
 import ProviderWrapper from "../../mocks/providerWrapper";
 import { getExperienceActionCreator } from "../../redux/features/experienceSlice/experienceSlice";
@@ -22,26 +22,36 @@ describe("Given the Experience custom hook", () => {
     wrapper: ProviderWrapper,
   });
 
-  describe("When its method loadAllGraffitis is invoked and axios rejects it", () => {
+  describe("When its loadExperinces is invoked and axios rejects it", () => {
     test("Then it should invoke dispatch with openModalActionCreator with text 'no hay experiencias disponibles' and isError true", async () => {
       const modalPayload: OpenModalActionPayload = {
         isError: true,
         messageFeedback: "no hay experiencias disponibles",
       };
-      await loadAllExperiences();
-
-      expect(dispatchSpy).toHaveBeenCalledWith(
-        openModalActionCreator(modalPayload)
+      await act(async () => loadAllExperiences());
+      await waitFor(() =>
+        expect(dispatchSpy).toHaveBeenCalledWith(
+          openModalActionCreator(modalPayload)
+        )
       );
     });
   });
 
-  describe("When it's method loadAllGraffitis is invoked", () => {
-    test("Then it should invoke dispatch with loadGraffitisActionCreator and a list of graffitis", async () => {
-      await loadAllExperiences();
+  describe("When it's method loadExperiences is invoked", () => {
+    test("Then it should invoke dispatch with ExperienceActionCreator and a list of experience", async () => {
+      const {
+        result: {
+          current: { loadAllExperiences },
+        },
+      } = renderHook(() => useExperience(), {
+        wrapper: ProviderWrapper,
+      });
 
-      expect(dispatchSpy).toHaveBeenCalledWith(
-        getExperienceActionCreator(mockExperience)
+      await act(async () => await loadAllExperiences());
+      await waitFor(() =>
+        expect(dispatchSpy).toHaveBeenCalledWith(
+          getExperienceActionCreator(mockExperience)
+        )
       );
     });
   });
