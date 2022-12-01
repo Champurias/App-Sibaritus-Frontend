@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const RegisterFormStyled = styled.form`
+  display: flex;
+  flex-direction: column;
   &.register {
     max-width: 350px;
     margin: 0 auto;
@@ -41,7 +43,7 @@ const RegisterFormStyled = styled.form`
     padding: 10px;
     border-radius: 50px;
     max-width: 350px;
-    width: 75%;
+    width: 100%;
   }
 `;
 

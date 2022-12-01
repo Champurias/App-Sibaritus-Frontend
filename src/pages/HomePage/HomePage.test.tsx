@@ -2,20 +2,19 @@ import { screen } from "@testing-library/react";
 import mockCurrentState from "../../mocks/mockCurrentState";
 import mockExpecienceState from "../../mocks/mockExperienceState";
 import renderWithProviders from "../../utils/testUtils/renderwithProvider";
-import ExperienceList from "./ExperienceList";
+import Homepage from "./HomePage";
 
-describe("Given a ExperienceList", () => {
-  describe("When its render with a list of two experience", () => {
-    test("Then it should ahow a list of experience", () => {
-      renderWithProviders(<ExperienceList />, {
+describe("Given a HomePage", () => {
+  describe("When its render", () => {
+    test("Then it should show a list of experience", () => {
+      renderWithProviders(<Homepage />, {
         preloadedState: {
           uiModal: mockCurrentState,
           experiences: mockExpecienceState,
         },
       });
-
-      const list = screen.queryAllByRole("listitem");
-      expect(list).toHaveLength(2);
+      const list = screen.queryByRole("list");
+      expect(list).toBeInTheDocument();
     });
   });
 });

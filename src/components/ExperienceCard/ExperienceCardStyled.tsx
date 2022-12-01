@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const ExperienceCardStyled = styled.article`
-  background-color: white;
+  background-color: #263056;
   text-align: center;
   list-style: none;
-  color: black;
+  color: white;
   border-radius: 50px;
   overflow: hidden;
   img {
