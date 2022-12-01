@@ -6,8 +6,9 @@ const ExperienceListStyled = styled.ul`
   align-items: center;
   gap: 40px;
   padding: 50px 30px;
-  background-color: #263056;
+  background-color: white;
   list-style: none;
+  margin: 0;
 `;
 
 export default ExperienceListStyled;
