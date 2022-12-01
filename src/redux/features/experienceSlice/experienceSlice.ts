@@ -9,7 +9,7 @@ const experiencesSlice = createSlice({
   name: "experience",
   initialState: initialExperienceState,
   reducers: {
-    getAllExperience: (
+    getAllExperiences: (
       initialState,
       action: PayloadAction<Experience[]>
     ): ExperienceState => ({
@@ -19,7 +19,7 @@ const experiencesSlice = createSlice({
   },
 });
 
-export const { getAllExperience: getExperienceActionCreator } =
+export const { getAllExperiences: getExperienceActionCreator } =
   experiencesSlice.actions;
 
 export const experienceReducer = experiencesSlice.reducer;

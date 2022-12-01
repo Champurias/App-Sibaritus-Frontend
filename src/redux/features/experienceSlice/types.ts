@@ -1,6 +1,9 @@
 export interface Experience {
   _id?: string;
   owner: string;
+  title: string;
+  picture: string;
+  pictureBackUp: string;
   location: string;
   price: number;
   detail: string;

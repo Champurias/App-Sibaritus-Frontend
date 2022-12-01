@@ -11,6 +11,9 @@ describe("Given a slice experienceSlice", () => {
         {
           _id: "",
           owner: "",
+          title: "",
+          picture: "",
+          pictureBackUp: "",
           location: "",
           price: 12,
           detail: "",
