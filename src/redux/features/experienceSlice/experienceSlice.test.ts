@@ -1,4 +1,6 @@
+import mockExperience from "../../../mocks/mockExperience";
 import {
+  deleteExperienceActionCreator,
   experienceReducer,
   getExperienceActionCreator,
 } from "./experienceSlice";
@@ -31,6 +33,28 @@ describe("Given a slice experienceSlice", () => {
         getExperienceActionCreator(expectExperienceList)
       );
       expect(newStateExperience).toStrictEqual(expectedState);
+    });
+  });
+
+  describe("When it receives an initial state with a list {of experiences and a deleexperience action with a expereince id", () => {
+    test("Then it should  return a new estate", () => {
+      const currentExperienceState: ExperienceState = {
+        experienceList: mockExperience,
+      };
+      const experienceToDelete = mockExperience[1];
+      const deleteExperience = deleteExperienceActionCreator(
+        experienceToDelete._id as string
+      );
+      const expectedRecipesState: ExperienceState = {
+        experienceList: [mockExperience[0]],
+      };
+
+      const newExperiencesState = experienceReducer(
+        currentExperienceState,
+        deleteExperience
+      );
+
+      expect(newExperiencesState).toStrictEqual(expectedRecipesState);
     });
   });
 });

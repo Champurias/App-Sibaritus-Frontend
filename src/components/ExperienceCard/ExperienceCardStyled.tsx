@@ -9,6 +9,7 @@ const ExperienceCardStyled = styled.article`
   overflow: hidden;
   img {
     display: block;
+    object-fit: cover;
   }
   .card__tittle__container {
     padding: 20px 20px 0 20px;
