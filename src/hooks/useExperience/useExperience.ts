@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useCallback } from "react";
-import { getExperienceActionCreator } from "../../redux/features/experienceSlice/experienceSlice";
+import {
+  deleteExperienceActionCreator,
+  getExperienceActionCreator,
+} from "../../redux/features/experienceSlice/experienceSlice";
 import { openModalActionCreator } from "../../redux/features/Uislice/Uislice";
 import { useAppDispatch } from "../../redux/hooks";
 
@@ -24,7 +27,27 @@ const useExperience = () => {
       );
     }
   }, [dispatch, apiUrl]);
-  return { loadAllExperiences };
+
+  const deleteExperience = async (experienceId: string) => {
+    try {
+      await axios.delete(`${apiUrl}/experience/delete/${experienceId}`, {});
+      dispatch(deleteExperienceActionCreator(experienceId));
+      dispatch(
+        openModalActionCreator({
+          isError: false,
+          messageFeedback: "tu experiencia ha sido borrada",
+        })
+      );
+    } catch (error: unknown) {
+      dispatch(
+        openModalActionCreator({
+          isError: true,
+          messageFeedback: "hemos tenido un error",
+        })
+      );
+    }
+  };
+  return { loadAllExperiences, deleteExperience };
 };
 
 export default useExperience;
