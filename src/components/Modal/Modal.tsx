@@ -20,7 +20,7 @@ const Modal = ({ messageFeedback, isError }: ModalProps): JSX.Element => {
   return (
     <ModalStyled className={isError ? "modal-error" : "modal-correct"}>
       <span className="modal-heading">
-        {isError ? "LO SIENTO!!" : "BIENVENIDO "}
+        {isError ? "LO SIENTO!!" : "TU ACCION FUE REALIZADA: "}
       </span>
       <span className="modal-text">{messageFeedback}</span>
     </ModalStyled>

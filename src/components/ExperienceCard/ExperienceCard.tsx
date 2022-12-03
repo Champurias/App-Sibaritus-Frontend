@@ -8,6 +8,10 @@ interface ExperienceCardProps {
 }
 const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
   const { deleteExperience } = useExperience();
+  const handDeleteExperience = () => {
+    deleteExperience(experience.id!);
+    window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  };
   return (
     <ExperienceCardStyled className="card">
       <div className="card__tittle__container">
@@ -20,11 +24,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
         height="315"
         width="315"
       />
-      <Button
-        text="BORRAR"
-        type="button"
-        action={() => deleteExperience(experience.id as string)}
-      />
+      <Button text="BORRAR" type="button" action={handDeleteExperience} />
     </ExperienceCardStyled>
   );
 };
