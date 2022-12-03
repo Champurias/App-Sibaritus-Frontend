@@ -16,9 +16,11 @@ const ModalStyled = styled.div`
 
   &.modal-correct {
     background-color: #00ba00;
+    z-index: 5000;
   }
   &.modal-error {
     background-color: #fc0005;
+    z-index: 5000;
   }
 `;
 
