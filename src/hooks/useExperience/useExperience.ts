@@ -17,7 +17,6 @@ const useExperience = () => {
       const {
         data: { experience },
       } = await axios.get(`${apiUrl}/experience/list`);
-      console.log(experience);
 
       dispatch(getExperienceActionCreator(experience));
     } catch (error: unknown) {
