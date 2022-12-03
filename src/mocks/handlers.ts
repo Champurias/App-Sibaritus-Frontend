@@ -4,7 +4,7 @@ import mockExperience from "./mockExperience";
 import mockExperienceList from "./mockExperienceList";
 
 const url = process.env.REACT_APP_API_URL;
-const { _id } = mockExperience[0];
+const { id } = mockExperience[0];
 export const handlers = [
   rest.post(`${url}/users/register`, async (req, res, ctx) => {
     const user = await req.json<UserDateRegister>();
@@ -28,11 +28,11 @@ export const handlers = [
   rest.get(`${url}/experience/list`, async (req, res, ctx) => {
     return res.once(ctx.status(200), ctx.json(mockExperienceList));
   }),
-  rest.delete(`${url}/experience/delete/${_id}`, async (req, res, ctx) => {
+  rest.delete(`${url}/experience/delete/${id}`, async (req, res, ctx) => {
     return res.once(ctx.status(202));
   }),
 
-  rest.delete(`${url}/experience/delete/${_id}`, async (req, res, ctx) => {
+  rest.delete(`${url}/experience/delete/${id}`, async (req, res, ctx) => {
     return res.once(
       ctx.status(500),
       ctx.json({ error: "hemos tenido un error" })

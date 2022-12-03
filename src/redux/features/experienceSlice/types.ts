@@ -1,5 +1,5 @@
 export interface Experience {
-  _id?: string;
+  id?: string;
   owner: string;
   title: string;
   picture: string;

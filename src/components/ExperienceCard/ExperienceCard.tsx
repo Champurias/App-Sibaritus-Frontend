@@ -23,7 +23,7 @@ const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
       <Button
         text="BORRAR"
         type="button"
-        action={() => deleteExperience(experience.id!)}
+        action={() => deleteExperience(experience.id as string)}
       />
     </ExperienceCardStyled>
   );

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useCallback } from "react";
+import { isConstructorDeclaration } from "typescript";
 import {
   deleteExperienceActionCreator,
   getExperienceActionCreator,
@@ -16,6 +17,7 @@ const useExperience = () => {
       const {
         data: { experience },
       } = await axios.get(`${apiUrl}/experience/list`);
+      console.log(experience);
 
       dispatch(getExperienceActionCreator(experience));
     } catch (error: unknown) {
