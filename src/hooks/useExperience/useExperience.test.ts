@@ -68,7 +68,7 @@ describe("Given the Experience custom hook", () => {
         wrapper: ProviderWrapper,
       });
 
-      const { _id: experienceIdExpected } = mockExperience[0];
+      const { id: experienceIdExpected } = mockExperience[0];
 
       await deleteExperience(experienceIdExpected as string);
 
@@ -88,7 +88,7 @@ describe("Given the Experience custom hook", () => {
         wrapper: ProviderWrapper,
       });
 
-      const { _id: experienceIdExpecte } = mockExperience[0];
+      const { id: experienceIdExpecte } = mockExperience[0];
       await deleteExperience(experienceIdExpecte as string);
 
       expect(dispatchSpy).toHaveBeenCalledWith(

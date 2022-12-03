@@ -3,7 +3,7 @@ import { ExperienceState } from "../redux/features/experienceSlice/types";
 const mockExpecienceState: ExperienceState = {
   experienceList: [
     {
-      _id: "6385f92759fac43576020b2b",
+      id: "6385f92759fac43576020b2b",
       owner: "chebu",
       title: "cata de quesos",
       picture:
@@ -15,7 +15,7 @@ const mockExpecienceState: ExperienceState = {
     },
 
     {
-      _id: "6385fda659fac43576020b2c",
+      id: "6385fda659fac43576020b2c",
       owner: "Ayuntamiento de Barcelona",
       title: "calcot",
       picture:

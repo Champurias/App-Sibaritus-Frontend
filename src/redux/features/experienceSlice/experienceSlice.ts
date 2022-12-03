@@ -19,7 +19,7 @@ const experiencesSlice = createSlice({
     deleteExperience: (initialState, action: PayloadAction<string>) => ({
       ...initialState,
       experienceList: initialState.experienceList.filter((experience) => {
-        return experience._id !== action.payload;
+        return experience.id !== action.payload;
       }),
     }),
   },

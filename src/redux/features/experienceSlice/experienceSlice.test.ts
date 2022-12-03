@@ -11,7 +11,7 @@ describe("Given a slice experienceSlice", () => {
     test("Then it should return a new state", () => {
       const expectExperienceList: Experiences = [
         {
-          _id: "",
+          id: "",
           owner: "",
           title: "",
           picture: "",
@@ -43,7 +43,7 @@ describe("Given a slice experienceSlice", () => {
       };
       const experienceToDelete = mockExperience[1];
       const deleteExperience = deleteExperienceActionCreator(
-        experienceToDelete._id as string
+        experienceToDelete.id as string
       );
       const expectedRecipesState: ExperienceState = {
         experienceList: [mockExperience[0]],

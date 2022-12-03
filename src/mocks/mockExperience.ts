@@ -1,6 +1,6 @@
 const mockExperience = [
   {
-    _id: "6385f92759fac43576020b2b",
+    id: "6385f92759fac43576020b2b",
     owner: "chebu",
     title: "cata de quesos",
     picture: "https://www.lagourmeta.com/modules/ph_simpleblog/featured/47.jpg",
@@ -11,7 +11,7 @@ const mockExperience = [
   },
 
   {
-    _id: "6385fda659fac43576020b2c",
+    id: "6385fda659fac43576020b2c",
     owner: "Ayuntamiento de Barcelona",
     title: "calcot",
     picture:

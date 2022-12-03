@@ -18,7 +18,7 @@ const ExperienceList = (): JSX.Element => {
   return (
     <ExperienceListStyled>
       {experiences.map((experience) => (
-        <li key={experience._id}>
+        <li key={experience.id}>
           <ExperienceCard experience={experience} />
         </li>
       ))}

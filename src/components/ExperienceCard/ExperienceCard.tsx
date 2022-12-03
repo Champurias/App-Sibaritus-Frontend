@@ -1,11 +1,13 @@
+import useExperience from "../../hooks/useExperience/useExperience";
 import { Experience } from "../../redux/features/experienceSlice/types";
+import Button from "../Button/Button";
 import ExperienceCardStyled from "./ExperienceCardStyled";
 
 interface ExperienceCardProps {
   experience: Experience;
 }
-
-const experienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
+const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
+  const { deleteExperience } = useExperience();
   return (
     <ExperienceCardStyled className="card">
       <div className="card__tittle__container">
@@ -18,8 +20,13 @@ const experienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
         height="315"
         width="315"
       />
+      <Button
+        text="BORRAR"
+        type="button"
+        action={() => deleteExperience(experience.id as string)}
+      />
     </ExperienceCardStyled>
   );
 };
 
-export default experienceCard;
+export default ExperienceCard;

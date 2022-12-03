@@ -1,35 +1,37 @@
-import { render, screen } from "@testing-library/react";
-import { Experience } from "../../redux/features/experienceSlice/types";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import mockExperience from "../../mocks/mockExperience";
+import renderWithProviders from "../../utils/testUtils/renderwithProvider";
 import ExperienceCard from "./ExperienceCard";
 
-describe("Given a Experience component", () => {
-  describe("When is renderd with Experience 'cata de quesos'", () => {
-    test("Then it should show a level 2 heading with 'cata de quesos and imagen'", () => {
-      const experience: Experience = {
-        detail: "",
-        owner: "",
-        location: "",
-        picture: "",
-        pictureBackUp: "",
-        price: 12,
-        title: "cata de quesos",
-        _id: "",
-      };
+const mockDeleteExperience = jest.fn();
+jest.mock("../../hooks/useExperience/useExperience", () => {
+  return () => ({
+    deleteExperience: mockDeleteExperience,
+  });
+});
 
-      const expectedproperty = "alt";
-      const expectedAlt = `Experience ${experience.title}`;
-
-      render(<ExperienceCard experience={experience} />);
-
-      const experienceCardTitle = screen.queryByRole("heading", {
-        name: experience.title,
+describe("Given a Experience Card component", () => {
+  describe("When it is rendered", () => {
+    test("Then it should show an article with text 'cata de quesos'", () => {
+      const experienceTitle = "cata de quesos";
+      renderWithProviders(<ExperienceCard experience={mockExperience[0]} />);
+      const experienceCard = screen.queryByRole("heading", {
         level: 2,
+        name: experienceTitle,
       });
+      expect(experienceCard).toHaveTextContent(experienceTitle);
+    });
+    test("And it should show a button with text 'BORRAR'", async () => {
+      const textButton = "BORRAR";
 
-      const experienceCardImage = screen.queryByRole("img");
+      renderWithProviders(<ExperienceCard experience={mockExperience[0]} />);
 
-      expect(experienceCardTitle).toBeInTheDocument();
-      expect(experienceCardImage).toHaveProperty(expectedproperty, expectedAlt);
+      const button = screen.queryByRole("button", { name: textButton })!;
+      await userEvent.click(button!);
+
+      expect(button).toBeInTheDocument();
+      expect(mockDeleteExperience).toHaveBeenCalled();
     });
   });
 });

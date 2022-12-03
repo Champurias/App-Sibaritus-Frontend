@@ -7,6 +7,7 @@ const ExperienceCardStyled = styled.article`
   color: white;
   border-radius: 50px;
   overflow: hidden;
+  position: relative;
   img {
     display: block;
     object-fit: cover;
