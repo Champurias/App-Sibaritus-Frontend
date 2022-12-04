@@ -1,5 +1,6 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import mockExperience from "../../mocks/mockExperience";
+import mockExperienceCreation from "../../mocks/mockExperienceCreation";
 import ProviderWrapper from "../../mocks/providerWrapper";
 import {
   deleteExperienceActionCreator,
@@ -96,6 +97,47 @@ describe("Given the Experience custom hook", () => {
           isError: true,
           messageFeedback: "hemos tenido un error",
         })
+      );
+    });
+  });
+
+  describe("When it's method createExperience is invoked a correct experience creation", () => {
+    test("then it should dispach with openModal creator with text 'Has creado una experiencia'", async () => {
+      const {
+        result: {
+          current: { createExperience },
+        },
+      } = renderHook(() => useExperience(), {
+        wrapper: ProviderWrapper,
+      });
+      const newExperience = mockExperienceCreation;
+      const modalPayload: OpenModalActionPayload = {
+        isError: false,
+        messageFeedback: "Has creado una experiencia",
+      };
+      await createExperience(newExperience);
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        openModalActionCreator(modalPayload)
+      );
+    });
+  });
+  describe("When it's method createExperience is invoked and rejects is", () => {
+    test("then it should dispach with openModal creator with text 'hemos tenido un error'", async () => {
+      const {
+        result: {
+          current: { createExperience },
+        },
+      } = renderHook(() => useExperience(), {
+        wrapper: ProviderWrapper,
+      });
+      const newExperience = mockExperienceCreation;
+      const modalPayload: OpenModalActionPayload = {
+        isError: true,
+        messageFeedback: "hemos tenido un error",
+      };
+      await createExperience(newExperience);
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        openModalActionCreator(modalPayload)
       );
     });
   });
