@@ -1,5 +1,6 @@
 import { rest } from "msw";
 import { UserDateRegister } from "../data/types";
+import { Experience } from "../redux/features/experienceSlice/types";
 import mockExperience from "./mockExperience";
 import mockExperienceList from "./mockExperienceList";
 
@@ -33,6 +34,20 @@ export const handlers = [
   }),
 
   rest.delete(`${url}/experience/delete/${id}`, async (req, res, ctx) => {
+    return res.once(
+      ctx.status(500),
+      ctx.json({ error: "hemos tenido un error" })
+    );
+  }),
+
+  rest.post(`${url}/experience/create`, async (req, res, ctx) => {
+    /*  const experience = await req.json<Experience>(); */
+    return res.once(
+      ctx.status(201),
+      ctx.json({ text: "tu experiencia ha sido creada" })
+    );
+  }),
+  rest.post(`${url}/experience/create`, async (req, res, ctx) => {
     return res.once(
       ctx.status(500),
       ctx.json({ error: "hemos tenido un error" })
