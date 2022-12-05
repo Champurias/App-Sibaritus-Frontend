@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import providerWrapper from "../../mocks/providerWrapper";
-import ProviderWrapper from "../../mocks/providerWrapper";
 import renderWithProviders from "../../utils/testUtils/renderwithProvider";
 import RegisterForm from "./RegisterForm";
 
