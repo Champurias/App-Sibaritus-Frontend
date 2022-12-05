@@ -3,6 +3,7 @@ import { Experience, ExperienceState } from "./types";
 
 export const initialExperienceState: ExperienceState = {
   experienceList: [],
+  experience: {} as Experience,
 };
 
 const experiencesSlice = createSlice({
@@ -10,17 +11,27 @@ const experiencesSlice = createSlice({
   initialState: initialExperienceState,
   reducers: {
     getAllExperiences: (
-      initialState,
+      currentState,
       action: PayloadAction<Experience[]>
     ): ExperienceState => ({
-      ...initialState,
+      ...currentState,
       experienceList: [...action.payload],
     }),
-    deleteExperience: (initialState, action: PayloadAction<string>) => ({
-      ...initialState,
-      experienceList: initialState.experienceList.filter((experience) => {
+    deleteExperience: (
+      currentState,
+      action: PayloadAction<string>
+    ): ExperienceState => ({
+      ...currentState,
+      experienceList: currentState.experienceList.filter((experience) => {
         return experience.id !== action.payload;
       }),
+    }),
+    getExperienceById: (
+      currentState,
+      action: PayloadAction<Experience>
+    ): ExperienceState => ({
+      ...currentState,
+      experience: { ...action.payload },
     }),
   },
 });
@@ -28,6 +39,7 @@ const experiencesSlice = createSlice({
 export const {
   getAllExperiences: getExperienceActionCreator,
   deleteExperience: deleteExperienceActionCreator,
+  getExperienceById: getExperienceByIdActionCreator,
 } = experiencesSlice.actions;
 
 export const experienceReducer = experiencesSlice.reducer;
