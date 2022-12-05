@@ -1,24 +1,27 @@
 import styled from "styled-components";
 
-const ExperienceFormStyled = styled.form`
+const ExperienceFormStyled = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  align-items: center;
   .experience-form {
     max-width: 350px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #263056;
-    width: 80%;
+    width: 100%;
     padding: 10px 10px;
     color: white;
-    align-items: center;
-    margin-top: 50px;
+    gap: 10px;
   }
   label {
     display: block;
     padding-bottom: 5px;
   }
   .register-form__container {
-    margin-bottom: 15px;
     color: white;
   }
 
@@ -50,7 +53,8 @@ const ExperienceFormStyled = styled.form`
   }
   .experience-form__title {
     color: white;
-    padding: 20px;
+    text-align: center;
+    margin: 0;
   }
 `;
 

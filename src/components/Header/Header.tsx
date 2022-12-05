@@ -10,6 +10,9 @@ const Header = (): JSX.Element => {
       <NavLink to="/register" className="container__link">
         REGISTER
       </NavLink>
+      <NavLink to="/create" className="container__link">
+        CREA
+      </NavLink>
     </HeaderStyled>
   );
 };
