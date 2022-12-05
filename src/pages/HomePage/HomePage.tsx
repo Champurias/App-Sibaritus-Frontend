@@ -1,7 +1,11 @@
 import ExperienceList from "../../components/ExperienceList/ExperienceList";
 
 const Homepage = (): JSX.Element => {
-  return <ExperienceList />;
+  return (
+    <>
+      <ExperienceList />
+    </>
+  );
 };
 
 export default Homepage;
