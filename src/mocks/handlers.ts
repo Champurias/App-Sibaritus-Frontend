@@ -52,5 +52,18 @@ export const handlers = [
       ctx.json({ error: "hemos tenido un error" })
     );
   }),
+  rest.get(`${url}/experience/detail/${id}`, async (req, res, ctx) => {
+    return await res.once(
+      ctx.status(200),
+      ctx.json({ experience: mockExperience[0] })
+    );
+  }),
+
+  rest.get(`${url}/experience/detail/${id}`, async (req, res, ctx) => {
+    return await res.once(
+      ctx.status(500),
+      ctx.json({ error: " no ha sido posible encontrar la experiencia" })
+    );
+  }),
 ];
 export default handlers;
