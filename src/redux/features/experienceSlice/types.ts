@@ -1,3 +1,5 @@
+import ExperienceCard from "../../../components/ExperienceCard/ExperienceCard";
+
 export interface Experience {
   id?: string;
   owner: string;
@@ -13,4 +15,5 @@ export type Experiences = Experience[];
 
 export interface ExperienceState {
   experienceList: Experience[];
+  experience?: Experience;
 }
