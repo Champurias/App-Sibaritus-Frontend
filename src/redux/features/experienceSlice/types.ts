@@ -3,7 +3,7 @@ export interface Experience {
   owner: string;
   title: string;
   picture: string;
-  pictureBackUp: string;
+  pictureBackUp?: string;
   location: string;
   price: number;
   detail: string;

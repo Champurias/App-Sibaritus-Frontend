@@ -1,6 +1,5 @@
 import { rest } from "msw";
 import { UserDateRegister } from "../data/types";
-import { Experience } from "../redux/features/experienceSlice/types";
 import mockExperience from "./mockExperience";
 import mockExperienceList from "./mockExperienceList";
 
