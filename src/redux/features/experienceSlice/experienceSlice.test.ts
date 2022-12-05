@@ -3,6 +3,8 @@ import {
   deleteExperienceActionCreator,
   experienceReducer,
   getExperienceActionCreator,
+  getExperienceByIdActionCreator,
+  initialExperienceState,
 } from "./experienceSlice";
 import { Experiences, ExperienceState } from "./types";
 
@@ -55,6 +57,19 @@ describe("Given a slice experienceSlice", () => {
       );
 
       expect(newExperiencesState).toStrictEqual(expectedRecipesState);
+    });
+  });
+  describe("When it is invoked with getExperience", () => {
+    test("Then it should receives a Experience", () => {
+      const action = getExperienceByIdActionCreator(mockExperience[0]);
+      const expectedState = {
+        ...initialExperienceState,
+        experienceList: [],
+        experience: mockExperience[0],
+      };
+      const newState = experienceReducer(initialExperienceState, action);
+
+      expect(newState).toStrictEqual(expectedState);
     });
   });
 });
