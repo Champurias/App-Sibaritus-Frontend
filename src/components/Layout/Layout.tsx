@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import CreateExperiencePage from "../../pages/CreateExperience/CreateExperiencePage";
+import DetailPage from "../../pages/DetailPage/DetailPage";
 import Homepage from "../../pages/HomePage/HomePage";
 import RegisterPage from "../../pages/RegisterPage/RegisterPage";
 import Header from "../Header/Header";
@@ -14,7 +15,7 @@ const Layout = (): JSX.Element => {
         <Route path="/registro" element={<RegisterPage />} />
         <Route path="/create" element={<CreateExperiencePage />} />
         <Route path="/home" element={<Homepage />} />
-        <Route path="*" element={<RegisterPage />} />
+        <Route path="/experience/:id" element={<DetailPage />} />
       </Routes>
     </LayoutStyled>
   );

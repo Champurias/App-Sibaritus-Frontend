@@ -18,7 +18,10 @@ const ExperienceForm = (): JSX.Element => {
   const [formData, setFormData] = useState(initialFormData);
 
   const handleFormChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
   ): void => {
     setFormData({
       ...formData,
@@ -117,9 +120,9 @@ const ExperienceForm = (): JSX.Element => {
             <label className="register-form__label" htmlFor="detail">
               Detail:
             </label>
-            <input
+            <textarea
+              rows={5}
               className="register-form__field"
-              type="text"
               id="detail"
               required
               autoComplete="off"

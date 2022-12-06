@@ -79,13 +79,11 @@ const useExperience = () => {
     async (idExperience: string) => {
       try {
         const response = await axios.get(
-          `${apiUrl}/experience/detail/${idExperience}`
+          `${apiUrl}/experience/${idExperience}`
         );
         const apiResponse = response.data;
 
-        const { experience } = apiResponse;
-
-        dispatch(getExperienceByIdActionCreator(experience));
+        dispatch(getExperienceByIdActionCreator(apiResponse));
       } catch (error: unknown) {
         dispatch(getExperienceByIdActionCreator);
         dispatch(

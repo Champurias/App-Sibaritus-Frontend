@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useExperience from "../../hooks/useExperience/useExperience";
 import { Experience } from "../../redux/features/experienceSlice/types";
 import Button from "../Button/Button";
@@ -18,12 +19,14 @@ const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
         <h2 className="card__title">{experience.title}</h2>
         <h3 className="card__title_secundary">{experience.owner}</h3>
       </div>
-      <img
-        src={experience.picture}
-        alt={`Experience ${experience.title}`}
-        height="315"
-        width="315"
-      />
+      <Link to={`/experience/${experience.id}`}>
+        <img
+          src={experience.picture}
+          alt={`Experience ${experience.title}`}
+          height="315"
+          width="315"
+        />
+      </Link>
       <Button text="BORRAR" type="button" action={handDeleteExperience} />
     </ExperienceCardStyled>
   );

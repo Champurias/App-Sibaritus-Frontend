@@ -1,5 +1,3 @@
-import ExperienceCard from "../../../components/ExperienceCard/ExperienceCard";
-
 export interface Experience {
   id?: string;
   owner: string;
