@@ -17,7 +17,8 @@ const ExperienceFormStyled = styled.div`
     color: white;
     gap: 10px;
   }
-  label {
+  label,
+  textarea {
     display: block;
     padding-bottom: 5px;
   }
