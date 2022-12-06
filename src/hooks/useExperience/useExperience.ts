@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {
   deleteExperienceActionCreator,
   getExperienceActionCreator,
+  getExperienceByIdActionCreator,
 } from "../../redux/features/experienceSlice/experienceSlice";
 import { Experience } from "../../redux/features/experienceSlice/types";
 import { openModalActionCreator } from "../../redux/features/Uislice/Uislice";
@@ -74,6 +75,35 @@ const useExperience = () => {
       );
     }
   };
-  return { loadAllExperiences, deleteExperience, createExperience };
+  const getExperienceByid = useCallback(
+    async (idExperience: string) => {
+      try {
+        const response = await axios.get(
+          `${apiUrl}/experience/detail/${idExperience}`
+        );
+        const apiResponse = response.data;
+
+        const { experience } = apiResponse;
+
+        dispatch(getExperienceByIdActionCreator(experience));
+      } catch (error: unknown) {
+        dispatch(getExperienceByIdActionCreator);
+        dispatch(
+          openModalActionCreator({
+            isError: true,
+            messageFeedback: "no se ha poddido encontrar la experiencia",
+          })
+        );
+      }
+    },
+    [dispatch, apiUrl]
+  );
+
+  return {
+    loadAllExperiences,
+    deleteExperience,
+    createExperience,
+    getExperienceByid,
+  };
 };
 export default useExperience;

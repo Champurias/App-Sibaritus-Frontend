@@ -5,6 +5,7 @@ import ProviderWrapper from "../../mocks/providerWrapper";
 import {
   deleteExperienceActionCreator,
   getExperienceActionCreator,
+  getExperienceByIdActionCreator,
 } from "../../redux/features/experienceSlice/experienceSlice";
 import { openModalActionCreator } from "../../redux/features/Uislice/Uislice";
 import { store } from "../../redux/store";
@@ -138,6 +139,50 @@ describe("Given the Experience custom hook", () => {
       await createExperience(newExperience);
       expect(dispatchSpy).toHaveBeenCalledWith(
         openModalActionCreator(modalPayload)
+      );
+    });
+  });
+  describe("When it's method getExperienceById is invoked a correct id", () => {
+    test("Then it should dispach with getExperienceByIdActionCreator and return a Experience", async () => {
+      const {
+        result: {
+          current: { getExperienceByid },
+        },
+      } = renderHook(() => useExperience(), {
+        wrapper: ProviderWrapper,
+      });
+
+      const idMock = mockExperience[0].id;
+      const experience = mockExperience[0];
+
+      await act(async () => await getExperienceByid(idMock!));
+      await waitFor(() =>
+        expect(dispatchSpy).toHaveBeenCalledWith(
+          getExperienceByIdActionCreator(experience)
+        )
+      );
+    });
+  });
+  describe("When it's method getExperienceById is invoked and rejects it", () => {
+    test("Then it should invoke dispatch with openModalActionCreator creator with text 'no se ha poddido encontrar la experiencia'", async () => {
+      const {
+        result: {
+          current: { getExperienceByid },
+        },
+      } = renderHook(() => useExperience(), {
+        wrapper: ProviderWrapper,
+      });
+      const idMock = mockExperience[0].id;
+      const feedbackPayload: OpenModalActionPayload = {
+        isError: true,
+        messageFeedback: "no se ha poddido encontrar la experiencia",
+      };
+
+      await act(async () => await getExperienceByid(idMock!));
+      await waitFor(() =>
+        expect(dispatchSpy).toHaveBeenCalledWith(
+          openModalActionCreator(feedbackPayload)
+        )
       );
     });
   });
