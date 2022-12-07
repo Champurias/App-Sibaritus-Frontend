@@ -11,14 +11,28 @@ const ExperienceDetailStyled = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  .experience-detail__picture {
-  }
+  padding: 20px;
+
   img {
     display: block;
     object-fit: cover;
+    border-radius: 40px;
   }
   .card__tittle__container {
     padding: 20px 20px 0 20px;
+  }
+  h5 {
+    font-size: 1.17em;
+    margin: 10px;
+  }
+  p {
+    font-size: 1.17em;
+  }
+  .experience-detail__container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-right: 20px;
   }
 `;
 

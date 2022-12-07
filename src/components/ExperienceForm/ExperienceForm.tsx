@@ -117,7 +117,7 @@ const ExperienceForm = (): JSX.Element => {
                 onChange={handleFormChange}
               />
             </div>
-            <div className="register-form__input">
+            <div className="register-form__input description">
               <label className="register-form__label" htmlFor="detail">
                 Detail:
               </label>

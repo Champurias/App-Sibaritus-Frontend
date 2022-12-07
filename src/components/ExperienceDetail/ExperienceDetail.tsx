@@ -15,11 +15,13 @@ const ExperienceDetail = (experience: ExperienceDetailProps): JSX.Element => {
       <div className="experience-detail__picture">
         <img src={picture} alt={title} height="200" width="250" />
       </div>
-      <h2 className="experience-detail__title">{title}</h2>
-      <h3 className="experience-detail__owner">{owner}</h3>
-      <h5 className="experience-detail__price">{price}€</h5>
-      <h5 className="experience-detail__location">{location}</h5>
-      <p className="experience-detail__detail">{detail}</p>
+      <div className="experience-detail__container">
+        <h2 className="experience-detail__title">{title}</h2>
+        <h3 className="experience-detail__owner">{owner}</h3>
+        <h5 className="experience-detail__price">{price}€</h5>
+        <h5 className="experience-detail__location">{location}</h5>
+        <p className="experience-detail__detail">{detail}</p>
+      </div>
     </ExperienceDetailStyled>
   );
 };

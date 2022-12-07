@@ -5,9 +5,10 @@ const HeaderStyled = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 30px;
+  padding: 20px 30px;
   background-color: #263056;
   margin: 0;
+  border-bottom: yellow solid 1px;
 
   .container__link {
     color: white;
@@ -17,6 +18,12 @@ const HeaderStyled = styled.header`
   }
   P {
     color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  nav {
+    display: flex;
+    gap: 10px;
   }
 `;
 

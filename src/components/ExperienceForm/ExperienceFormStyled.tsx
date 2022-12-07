@@ -5,6 +5,8 @@ const ExperienceFormStyled = styled.div`
   flex-direction: column;
   gap: 10px;
   align-items: center;
+  padding: 20px 0;
+
   .experience-form {
     max-width: 350px;
     display: flex;
@@ -17,10 +19,18 @@ const ExperienceFormStyled = styled.div`
     color: white;
     gap: 10px;
   }
+
+  .description {
+    width: 100%;
+  }
+
   label,
   textarea {
     display: block;
     padding-bottom: 5px;
+    border-radius: 8px;
+    max-width: 350px;
+    width: 100%;
   }
   .register-form__container {
     color: white;
@@ -36,6 +46,7 @@ const ExperienceFormStyled = styled.div`
     margin: 30px auto 0;
     text-align: center;
     font-size: 1rem;
+    left: -98px;
     display: block;
     &:hover,
     &:focus {
@@ -44,10 +55,11 @@ const ExperienceFormStyled = styled.div`
   }
   input {
     border: 1px solid #666;
-    padding: 10px;
+    padding: 0 10px;
     border-radius: 50px;
     max-width: 350px;
     width: 100%;
+    height: 60px;
   }
   label {
     color: white;
@@ -56,6 +68,9 @@ const ExperienceFormStyled = styled.div`
     color: white;
     text-align: center;
     margin: 0;
+  }
+  .register-form__field {
+    padding: 20px;
   }
 `;
 
