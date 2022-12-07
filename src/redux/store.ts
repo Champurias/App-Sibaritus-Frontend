@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { experienceReducer } from "./features/experienceSlice/experienceSlice";
 import { uiReducer } from "./features/Uislice/Uislice";
+import { userReducer } from "./features/userSlice/userSlice";
 
 export const store = configureStore({
   reducer: {
     uiModal: uiReducer,
+    user: userReducer,
     experiences: experienceReducer,
   },
 });
