@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { UserDateRegister } from "../../data/types";
 import useUser from "../../hooks/useUser";
 import Button from "../Button/Button";
@@ -32,44 +33,48 @@ const RegisterForm = (): JSX.Element => {
     registerUser(formDataToSubmit);
   };
   return (
-    <>
-      <RegisterFormStyled onSubmit={handleSubmit} className="register">
-        <h1> Sibaritus </h1>
-        <div className="register-form__container">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            value={formData.username}
-            id="username"
-            autoComplete="off"
-            aria-label="username-input"
-            onChange={handleFormChange}
-            className="register-form__input"
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            value={formData.password}
-            id="password"
-            aria-label="password-input"
-            autoComplete="off"
-            onChange={handleFormChange}
-            className="register-form__input"
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={formData.email}
-            autoComplete="off"
-            aria-label="email-input"
-            onChange={handleFormChange}
-            className="register-form__input"
-          />
-          <Button text="Registrate" type="submit" />
-        </div>
-      </RegisterFormStyled>
-    </>
+    <RegisterFormStyled onSubmit={handleSubmit} className="register">
+      <h1> Sibaritus </h1>
+      <div className="register-form__container">
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          value={formData.username}
+          id="username"
+          autoComplete="off"
+          aria-label="username-input"
+          onChange={handleFormChange}
+          className="register-form__input"
+        />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          value={formData.password}
+          id="password"
+          aria-label="password-input"
+          autoComplete="off"
+          onChange={handleFormChange}
+          className="register-form__input"
+        />
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={formData.email}
+          autoComplete="off"
+          aria-label="email-input"
+          onChange={handleFormChange}
+          className="register-form__input"
+        />
+        <h3>¿ya tienes cuenta?</h3>
+
+        <Link to={"/login"} className="form__register">
+          Iniciar sesión
+        </Link>
+
+        <Button text="Registrate" type="submit" />
+      </div>
+    </RegisterFormStyled>
   );
 };
 export default RegisterForm;

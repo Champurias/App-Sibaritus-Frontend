@@ -27,7 +27,12 @@ const ExperienceCard = ({ experience }: ExperienceCardProps): JSX.Element => {
           width="315"
         />
       </Link>
-      <Button text="BORRAR" type="button" action={handDeleteExperience} />
+      <Button
+        text="BORRAR"
+        type="button"
+        action={handDeleteExperience}
+        className="button__delete"
+      />
     </ExperienceCardStyled>
   );
 };

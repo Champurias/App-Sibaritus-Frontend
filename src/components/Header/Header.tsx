@@ -1,17 +1,21 @@
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
 import HeaderStyled from "./HeaderStyled";
 const Header = (): JSX.Element => {
+  const { isLogged } = useAppSelector(({ user }) => user);
   return (
     <HeaderStyled className="container">
       <p>SIBARITUS</p>
       <NavLink to="/home" className="container__link">
-        EXPERIENCIAS
+        Experiencias
       </NavLink>
-      <NavLink to="/register" className="container__link">
-        REGISTER
-      </NavLink>
+      {!isLogged && (
+        <NavLink to="/registro" className="container__link">
+          Registrate
+        </NavLink>
+      )}
       <NavLink to="/create" className="container__link">
-        CREA
+        Crea
       </NavLink>
     </HeaderStyled>
   );

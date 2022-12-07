@@ -45,6 +45,9 @@ const RegisterFormStyled = styled.form`
     max-width: 350px;
     width: 100%;
   }
+  .form__register {
+    color: #f1c16b;
+  }
 `;
 
 export default RegisterFormStyled;

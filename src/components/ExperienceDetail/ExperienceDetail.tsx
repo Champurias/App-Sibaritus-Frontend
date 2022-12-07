@@ -1,5 +1,5 @@
 import { Experience } from "../../redux/features/experienceSlice/types";
-import ExperienceCardStyled from "../ExperienceCard/ExperienceCardStyled";
+import ExperienceDetailStyled from "./ExperienceDetailStyled";
 
 interface ExperienceDetailProps {
   experience: Experience;
@@ -11,7 +11,7 @@ const ExperienceDetail = (experience: ExperienceDetailProps): JSX.Element => {
   } = experience;
 
   return (
-    <ExperienceCardStyled>
+    <ExperienceDetailStyled>
       <div className="experience-detail__picture">
         <img src={picture} alt={title} height="200" width="250" />
       </div>
@@ -20,7 +20,7 @@ const ExperienceDetail = (experience: ExperienceDetailProps): JSX.Element => {
       <h5 className="experience-detail__price">{price}€</h5>
       <h5 className="experience-detail__location">{location}</h5>
       <p className="experience-detail__detail">{detail}</p>
-    </ExperienceCardStyled>
+    </ExperienceDetailStyled>
   );
 };
 
