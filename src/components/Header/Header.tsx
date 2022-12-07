@@ -6,17 +6,21 @@ const Header = (): JSX.Element => {
   return (
     <HeaderStyled className="container">
       <p>SIBARITUS</p>
-      <NavLink to="/home" className="container__link">
-        Experiencias
-      </NavLink>
-      {!isLogged && (
-        <NavLink to="/registro" className="container__link">
-          Registrate
+      <nav>
+        <NavLink to="/home" className="container__link">
+          Experiencias
         </NavLink>
-      )}
-      <NavLink to="/create" className="container__link">
-        Crea
-      </NavLink>
+        {!isLogged && (
+          <NavLink to="/login" className="container__link">
+            Accede
+          </NavLink>
+        )}
+        {isLogged && (
+          <NavLink to="/create" className="container__link">
+            Crear
+          </NavLink>
+        )}
+      </nav>
     </HeaderStyled>
   );
 };

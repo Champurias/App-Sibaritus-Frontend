@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import { UserLogin } from "../../redux/types/types";
 import Button from "../Button/Button";
@@ -55,6 +56,10 @@ const LoginForm = (): JSX.Element => {
         />
         <Button text="Inicia sesion" type="submit" />
       </div>
+      <h3>¿No tienes cuenta?</h3>
+      <Link to={"/registro"} className="form__register">
+        Regístrate
+      </Link>
     </RegisterFormStyled>
   );
 };
