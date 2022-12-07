@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ExperienceCardStyled = styled.article`
+const ExperienceDetailStyled = styled.article`
   background-color: #263056;
   text-align: center;
   list-style: none;
@@ -8,9 +8,10 @@ const ExperienceCardStyled = styled.article`
   border-radius: 50px;
   overflow: hidden;
   position: relative;
-  .button__delete {
-    position: absolute;
-    bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .experience-detail__picture {
   }
   img {
     display: block;
@@ -21,4 +22,4 @@ const ExperienceCardStyled = styled.article`
   }
 `;
 
-export default ExperienceCardStyled;
+export default ExperienceDetailStyled;

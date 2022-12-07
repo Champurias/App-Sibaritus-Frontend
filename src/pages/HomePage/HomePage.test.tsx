@@ -1,8 +1,16 @@
 import { screen } from "@testing-library/react";
 import mockCurrentState from "../../mocks/mockCurrentState";
 import mockExpecienceState from "../../mocks/mockExperienceState";
+import { UserState } from "../../redux/types/types";
 import renderWithProviders from "../../utils/testUtils/renderwithProvider";
 import Homepage from "./HomePage";
+
+const userState: UserState = {
+  id: "",
+  isLogged: false,
+  token: "",
+  email: "",
+};
 
 describe("Given a HomePage", () => {
   describe("When its render", () => {
@@ -11,6 +19,7 @@ describe("Given a HomePage", () => {
         preloadedState: {
           uiModal: mockCurrentState,
           experiences: mockExpecienceState,
+          user: userState,
         },
       });
       const list = screen.queryByRole("list");

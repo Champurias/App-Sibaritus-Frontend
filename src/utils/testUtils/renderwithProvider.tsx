@@ -8,6 +8,7 @@ import { RootState, store } from "../../redux/store";
 import { InitialEntry } from "@remix-run/router";
 import { uiReducer } from "../../redux/features/Uislice/Uislice";
 import { experienceReducer } from "../../redux/features/experienceSlice/experienceSlice";
+import { userReducer } from "../../redux/features/userSlice/userSlice";
 
 interface ExtendedRenderOptions extends RenderOptions {
   preloadedState?: PreloadedState<RootState>;
@@ -37,7 +38,11 @@ const renderWithProviders = (
     initialEntries,
     preloadedState,
     store = configureStore({
-      reducer: { uiModal: uiReducer, experiences: experienceReducer },
+      reducer: {
+        uiModal: uiReducer,
+        experiences: experienceReducer,
+        user: userReducer,
+      },
       preloadedState,
     }),
     ...renderOptions

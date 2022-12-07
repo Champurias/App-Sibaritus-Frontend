@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { UserDateRegister } from "../../data/types";
 import useUser from "../../hooks/useUser";
+import { UserLogin } from "../../redux/types/types";
 import Button from "../Button/Button";
-import RegisterFormStyled from "./RegisterFormStyled";
+import RegisterFormStyled from "../RegisterForm/RegisterFormStyled";
 
-const initialUserRegisterData: UserDateRegister = {
+const initialUserRegisterData: UserLogin = {
   username: "",
   password: "",
-  email: "",
 };
 
-const RegisterForm = (): JSX.Element => {
+const LoginForm = (): JSX.Element => {
   const [formData, setFormData] = useState(initialUserRegisterData);
 
-  const { registerUser } = useUser();
+  const { userLogin } = useUser();
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -25,12 +23,11 @@ const RegisterForm = (): JSX.Element => {
 
   const handleSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    const formDataToSubmit: UserDateRegister = {
+    const formDataToSubmit: UserLogin = {
       username: formData.username,
       password: formData.password,
-      email: formData.email,
     };
-    registerUser(formDataToSubmit);
+    userLogin(formDataToSubmit);
   };
   return (
     <RegisterFormStyled onSubmit={handleSubmit} className="register">
@@ -39,8 +36,8 @@ const RegisterForm = (): JSX.Element => {
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          value={formData.username}
           id="username"
+          value={formData.username}
           autoComplete="off"
           aria-label="username-input"
           onChange={handleFormChange}
@@ -56,25 +53,10 @@ const RegisterForm = (): JSX.Element => {
           onChange={handleFormChange}
           className="register-form__input"
         />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          value={formData.email}
-          autoComplete="off"
-          aria-label="email-input"
-          onChange={handleFormChange}
-          className="register-form__input"
-        />
-        <h3>¿ya tienes cuenta?</h3>
-
-        <Link to={"/login"} className="form__register">
-          Iniciar sesión
-        </Link>
-
-        <Button text="Registrate" type="submit" />
+        <Button text="Inicia sesion" type="submit" />
       </div>
     </RegisterFormStyled>
   );
 };
-export default RegisterForm;
+
+export default LoginForm;

@@ -1,5 +1,6 @@
 import { rest } from "msw";
 import { UserDateRegister } from "../data/types";
+import { UserCredentials } from "../redux/types/types";
 import mockExperience from "./mockExperience";
 import mockExperienceList from "./mockExperienceList";
 
@@ -17,6 +18,18 @@ export const handlers = [
       );
     }
     return res(ctx.status(201), ctx.json({ user }));
+  }),
+
+  rest.post(`${url}/users/login`, async (req, res, ctx) => {
+    const { password } = await req.json<UserCredentials>();
+    if (password === "wrongPassword") {
+      return res(
+        ctx.status(401),
+        ctx.json({ error: "No te puedes registrar" })
+      );
+    }
+
+    return res(ctx.status(200), ctx.json({ token: "tokenTest" }));
   }),
 
   rest.get(`${url}/experience/list`, async (req, res, ctx) => {
